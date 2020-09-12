@@ -1,6 +1,6 @@
 import 'core-js';
 import cors from 'cors';
-import movieRouter from './routes/movies';
+import skilRouter from './routes/skil';
 
 var createError = require('http-errors');
 var express = require('express');
@@ -26,8 +26,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/movies', movieRouter);
-
+app.use('/api/skils', skilRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

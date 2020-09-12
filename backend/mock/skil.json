@@ -1,0 +1,38 @@
+[
+  {
+    "name": "HTML5",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/html_icon.png"
+  },
+  {
+    "name": "CSS3",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/css_icon.png"
+  },
+  {
+    "name": "JS",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/js_icon.png"
+  },
+  {
+    "name": "Node-js",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/node_icon.png"
+  },
+  {
+    "name": "Mongo",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/mongo_icon.png"
+  },
+  {
+    "name": "Scss",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/scss_icon.png"
+  },
+  {
+    "name": "Vue.js",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/vue_icon.png"
+  },
+  {
+    "name": "Webpack",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/webpack_icon.png"
+  },
+  {
+    "name": "Docker",
+    "imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/docker_icon.png"
+  }
+]
