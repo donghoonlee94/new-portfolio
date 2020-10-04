@@ -8,10 +8,22 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: [
-    'plugin:vue/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:vue/essential', 'prettier', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: true,
+        useTabs: true,
+        tabWidth: 2,
+        trailingComma: 'all',
+        printWidth: 80,
+        bracketSpacing: true,
+        arrowParens: 'avoid',
+      },
+    ],
     'import/no-unresolved': 'off',
     'import/no-cycle': 'off',
     'no-console': 'off',
@@ -22,10 +34,7 @@ module.exports = {
     'no-return-assign': 'off',
     'class-methods-use-this': 'off',
     'eol-last': 0,
-    'prettier/prettier': 'off',
     'no-unused-vars': 'warn',
     'prefer-destructuring': 'warn',
-    'vue/singleline-html-element-content-newline': 'off',
-    'vue/multiline-html-element-content-newline': 'off',
   },
 };

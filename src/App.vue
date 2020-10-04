@@ -1,27 +1,22 @@
 <template>
-  <div id="app">
-    <Movie />
-  </div>
+	<!-- eslint-disable -->
+	<div id="app">
+		<Landing />
+	</div>
 </template>
 
 <script>
-import Movie from "./components/Movie";
+import Landing from './components/Landing';
 
 export default {
-  name: "App",
-  components: {
-    Movie,
-  },
+	name: 'App',
+	components: {
+		Landing,
+	},
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './assets/scss/reset.scss';
+@import './assets/scss/common.scss';
 </style>
