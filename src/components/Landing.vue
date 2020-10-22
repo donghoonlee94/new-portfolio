@@ -1,14 +1,14 @@
 <template>
 	<div>
-		<h1 ref="h1">API Get Test</h1>
-		<div
-			v-for="skil in skilList"
-			:key="skil.id"
-			:ref="skil.lowerName"
-			:class="[skil.lowerName, 'landing-page__skil-each']"
-		>
-			<img :src="skil.imgUrl" :alt="skil.lowerName" />
-			<p>{{ skil.name }}</p>
+		<h1 class="landing-page__title" ref="ladingPageTitle"></h1>
+		<div class="landing-page__skils" ref="landingPageSkils">
+			<img
+				v-for="skil in skilList"
+				:key="skil.id"
+				:src="skil.imgUrl"
+				:alt="skil.lowerName"
+				:class="[skil.lowerName, 'landing-page__skil-each']"
+			/>
 		</div>
 	</div>
 </template>
@@ -19,6 +19,12 @@ import { GET_SKILS } from '../store/modules/skil';
 
 export default {
 	name: 'LandingPage',
+	data: () => ({
+		rotateCount: 0,
+		titleMsgArray: ['Frontend', 'Developer', 'DongHoonLee'],
+		titleArrayCount: 0,
+		currentTitleCount: 0,
+	}),
 	computed: {
 		...mapState('skils', {
 			skilList: 'skilList',
@@ -29,31 +35,51 @@ export default {
 	},
 	mounted() {
 		this.$nextTick(() => {
-			addEventListener('mousemove', this.iconMoving);
+			this.lotateSkils();
+			this.typeWriter();
 		});
+	},
+	destroyed() {
+		window.cancelAnimationFrame(this.lotateSkils);
 	},
 	methods: {
 		...mapActions('skils', {
 			getSkils: GET_SKILS,
 		}),
-		iconMoving(e) {
-			const iconArray = this.$refs;
-			const x = e.clientX;
-			const y = e.clientY;
-			let mx = 0;
-			let my = 0;
-			const speed = 0.03;
-			mx += (x - mx) * speed;
-			my += (y - my) * speed;
-			Object.values(iconArray).forEach(icon => {
-				Object.values(icon).forEach(eachIcon => {
-					eachIcon.style.transform =
-						'translate(' + mx / 4 + 'px,' + my / 4 + 'px)';
-				});
-			});
-			// html5[0].style.transform = 'translate(' + mx / 9 + 'px,' + my / 9 + 'px)';
-
-			// console.log(test);
+		lotateSkils() {
+			const skils = this.$refs.landingPageSkils;
+			skils.style.transform = `rotate(${this.rotateCount}deg)`;
+			this.rotateCount += 0.3;
+			if (this.rotateCount >= 360) this.rotateCount = 0;
+			window.requestAnimationFrame(this.lotateSkils);
+		},
+		typeWriter() {
+			const { ladingPageTitle } = this.$refs;
+			const title = this.titleMsgArray[this.titleArrayCount];
+			const splitTitle = title.split('');
+			if (splitTitle.length > this.currentTitleCount) {
+				ladingPageTitle.innerHTML += splitTitle[this.currentTitleCount];
+				this.currentTitleCount++;
+				return setTimeout(this.typeWriter, 1000);
+			}
+			ladingPageTitle.innerHTML = '';
+			this.currentTitleCount = 0;
+			this.titleArrayCount++;
+			console.log(this.titleArrayCount);
+			console.log(title);
+			// const { ladingPageTitle } = this.$refs;
+			// if (this.currentTitleCount >= title.length) {
+			// 	this.titleArrayCount += 1;
+			// 	this.currentTitleCount = 0;
+			// 	ladingPageTitle.innerHTML = '';
+			// }
+			// if (this.titleArrayCount >= this.titleMsgArray.length) {
+			// 	this.titleArrayCount = 0;
+			// }
+			// ladingPageTitle.innerHTML += title.charAt(this.currentTitleCount);
+			// this.currentTitleCount += 0.0001;
+			// console.log(this.currentTitleCount);
+			// window.requestAnimationFrame(this.typeWriter);
 		},
 	},
 };

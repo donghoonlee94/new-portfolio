@@ -38,10 +38,5 @@
 		"name": "Webpack",
 		"lowerName": "webpack",
 		"imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/webpack_icon.png"
-	},
-	{
-		"name": "Docker",
-		"lowerName": "docker",
-		"imgUrl": "https://hoon-portfolio.s3.ap-northeast-2.amazonaws.com/docker_icon.png"
 	}
 ]
